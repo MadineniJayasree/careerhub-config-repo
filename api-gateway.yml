@@ -8,7 +8,7 @@ spring:
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/users/**
+            - Path=/message
 
 eureka:
   client:
