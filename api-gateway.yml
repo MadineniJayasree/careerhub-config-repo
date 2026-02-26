@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: api-gateway
-
   cloud:
     gateway:
       routes:
@@ -14,6 +13,14 @@ spring:
             - Path=/users/**
           filters:
             - StripPrefix=1
+
+        - id: test-route
+          uri: https://jsonplaceholder.typicode.com
+          predicates:
+            - Path=/external/**
+          filters:
+            - StripPrefix=1
+      
 
 eureka:
   client:
